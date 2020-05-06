@@ -1,0 +1,16 @@
+import requests
+# 爬取京东商品网页信息
+def get_JD_info(url):
+    try:
+        r = requests.get(url,headers = headers)
+        r.raise_for_status
+        r.encoding = r.apparent_encoding
+        print(r.text[:1000])
+    except:
+        print("产生异常")
+if __name__ == "__main__":
+    headers = {
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36'
+    }
+    url = "https://item.jd.com/100009083152.html"
+    get_JD_info(url)
